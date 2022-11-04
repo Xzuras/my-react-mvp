@@ -21,6 +21,19 @@ app.get('/api/instrument', (req,res) => {
         .catch(e => console.log(e.stack))
 });
 
+app.post ('/api/instrument/create', (req, res) => {
+
+    console.log("POST");
+    let createRow = req.body
+    console.log(createRow);
+    pool.query(`INSERT INTO instrument (kind, family, model) VALUES
+    ('${createRow.kind}', '${createRow.family}', '${createRow.model}');`)
+    .then (result => {
+        res.send(result.rows);
+    })
+    .catch(e => console.log(e.stack));
+})
+
 app.listen(PORT, () => {
     console.log(`Listening on port: ${PORT}`);
 });

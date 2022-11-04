@@ -4,20 +4,34 @@ const Instrument = () => {
   const [instrument, setInstrument] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/instrument')
+    fetch("http://localhost:5000/api/instrument")
       .then((response) => response.json())
       .then((result) => {
         setInstrument(result);
-        console.log("useEffect", result);
+        //console.log("useEffect", result);
       });
   }, []);
 
-  return (
-    <div>
-     
-      {console.log(instrument[0]?.kind)}
+  const kind = instrument.map((instrument) => (
+    <div key={instrument.id}>
+      <br />
+      Kind - {instrument.kind}
+      <br />
+      Family - {instrument.family}
+      <br />
+      Model - {instrument.model}
     </div>
-  );
+  ));
+
+
+  
+  return(
+     <div>
+
+    {kind}
+
+    </div>
+  )
 };
 
 export default Instrument;

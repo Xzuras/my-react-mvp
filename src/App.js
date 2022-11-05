@@ -1,6 +1,7 @@
 import "./App.css";
 import Instrument from "./Instrument";
 import { useState } from "react";
+import CreateInstrument from "./CreateInstrument";
 
 function App() {
   let [boolean, setBoolean] = useState(false);
@@ -17,6 +18,7 @@ function App() {
     <div className="App">
       <button onClick={clickHandler}>click me</button>
       {boolean ? <Instrument /> : null}
+ <CreateInstrument />
     </div>
   );
 }

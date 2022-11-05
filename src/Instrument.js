@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import DeleteInstrument from "./DeleteInstrument";
 
 const Instrument = () => {
   const [instrument, setInstrument] = useState([]);
@@ -21,33 +22,12 @@ const Instrument = () => {
       Family - {instrument.family}
       <br />
       Model - {instrument.model}
+      
+      <DeleteInstrument instrumentId={instrument.id}/>
     </div>
   ));
 
- // var inputData = {instrument: modelInput.value, brand: brandInput.value, color: colorInput.value, fretNum: fretInput.value}
-  /*useEffect(() => {
-    fetch ("http://localhost:5000/api/instrument/create", {
-        methoud: 'POST',
-        body: JSON.stringify('jhe'),
-        headers: {
-            'Content-Type': 'application/json'
-        },
-    })
-    .then((response) => response.json())
-    .then((result) => {
-        setCreateInstrument(result)
-    })
-  }, [])
-console.log(createInstrument)
-  */
-
-  return(
-     <div>
-
-    {kind}
-
-    </div>
-  )
+  return <div>{kind}</div>;
 };
 
 export default Instrument;

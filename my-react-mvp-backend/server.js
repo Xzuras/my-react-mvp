@@ -32,6 +32,15 @@ app.post ('/api/instrument/create', (req, res) => {
         res.send(result.rows);
     })
     .catch(e => console.log(e.stack));
+});
+
+app.delete('/api/instrument/delete/:id', (req, res) => {
+    let instrumentId = req.params.id;
+    
+    console.log('Deleted ID#:', instrumentId)
+    pool.query(`DELETE FROM instrument WHERE id = ${instrumentId};`)
+    .then (res.send("DELETED"))
+    .catch(e => console.log(e.stack));
 })
 
 app.listen(PORT, () => {

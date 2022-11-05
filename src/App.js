@@ -3,6 +3,7 @@ import Instrument from "./Instrument";
 import { useState } from "react";
 import CreateInstrument from "./CreateInstrument";
 
+
 function App() {
   let [boolean, setBoolean] = useState(false);
   //set a boolean state
@@ -19,6 +20,7 @@ function App() {
       <button onClick={clickHandler}>click me</button>
       {boolean ? <Instrument /> : null}
  <CreateInstrument />
+
     </div>
   );
 }

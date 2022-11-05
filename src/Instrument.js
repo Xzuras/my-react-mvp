@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DeleteInstrument from "./DeleteInstrument";
+import UpdateInstrument from "./UpdateInstrument";
 
 const Instrument = () => {
   const [instrument, setInstrument] = useState([]);
@@ -22,8 +23,8 @@ const Instrument = () => {
       Family - {instrument.family}
       <br />
       Model - {instrument.model}
-      
-      <DeleteInstrument instrumentId={instrument.id}/>
+      <DeleteInstrument instrumentId={instrument.id} />
+      <UpdateInstrument instrumentId={instrument.id}/>
     </div>
   ));
 

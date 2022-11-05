@@ -41,6 +41,17 @@ app.delete('/api/instrument/delete/:id', (req, res) => {
     pool.query(`DELETE FROM instrument WHERE id = ${instrumentId};`)
     .then (res.send("DELETED"))
     .catch(e => console.log(e.stack));
+});
+
+app.patch ('/api/instrument/update/:id', (req, res) => {
+    let instrumentId = req.params.id;
+    let patchBody = req.body
+    console.log("Updated Id:", instrumentId);
+    pool.query(`UPDATE instrument SET kind = '${patchBody.kind}', family = '${patchBody.family}', model = '${patchBody.model}' Where id = ${instrumentId};`)
+    .then (result => {
+        res.send('UPDATED')
+    })
+    .catch(e => console.log(e.stack))
 })
 
 app.listen(PORT, () => {

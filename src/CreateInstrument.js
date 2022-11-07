@@ -1,4 +1,12 @@
 import React, { useState } from "react";
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
+import styled from 'styled-components';
+
+const StyledDiv = styled.div`
+padding-top: 15px;
+`
 
 const CreateInstrument = () => {
   const [kind, setKind] = useState("");
@@ -19,35 +27,41 @@ const CreateInstrument = () => {
       .then((result) => {
         console.log(result);
       });
+    // 👇️ clear all input values in the form
+    setKind("");
+    setFamily("");
+    setModel("");
   };
 
   return (
-    <div>
+    <StyledDiv>
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="kind"
-          id="kindInput"
+        <TextField
+          label="Kind"
+          id="outlined-basic"
+          variant="outlined"
           onChange={(event) => setKind(event.target.value)}
           value={kind}
-        ></input>
-        <input
-          type="text"
-          placeholder="family"
-          id="familyInput"
+        />
+        <TextField
+          label="Family"
+          id="outlined-basic"
+          variant="outlined"
           onChange={(event) => setFamily(event.target.value)}
           value={family}
-        ></input>
-        <input
-          type="text"
-          placeholder="model"
-          id="modelInput"
+        />
+        <TextField
+          label="Model"
+          id="outlined-basic"
+          variant="outlined"
           onChange={(event) => setModel(event.target.value)}
           value={model}
-        ></input>
-        <button type="submit">create</button>
+        />
+        <Button variant="contained" type="submit" startIcon={<AddCircleIcon />}>
+          create
+        </Button>
       </form>
-    </div>
+    </StyledDiv>
   );
 };
 export default CreateInstrument;

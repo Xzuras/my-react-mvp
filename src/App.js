@@ -2,7 +2,16 @@ import "./App.css";
 import Instrument from "./Instrument";
 import { useState } from "react";
 import CreateInstrument from "./CreateInstrument";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+import CssBaseline from "@mui/material/CssBaseline";
+import Button from "@mui/material/Button";
+import ArrowDropDownCircleIcon from "@mui/icons-material/ArrowDropDownCircle";
 
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+  },
+});
 
 function App() {
   let [boolean, setBoolean] = useState(false);
@@ -16,12 +25,21 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <button onClick={clickHandler}>click me</button>
-      {boolean ? <Instrument /> : null}
- <CreateInstrument />
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
 
-    </div>
+      <div className="App">
+        <Button
+          variant="contained"
+          color="success"
+          endIcon={<ArrowDropDownCircleIcon />}
+          onClick={clickHandler}
+        >
+          Results
+        </Button>
+        {boolean ? <Instrument /> : <CreateInstrument />}
+      </div>
+    </ThemeProvider>
   );
 }
 

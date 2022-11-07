@@ -27,7 +27,6 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-
       <div className="App">
         <Button
           variant="contained"

@@ -2,11 +2,27 @@ import React from "react";
 import Button from "@mui/material/Button";
 import EditIcon from "@mui/icons-material/Edit";
 
-const UpdateInstrument = ({ instrumentId }) => {
+const UpdateInstrument = ({
+  instrumentId,
+  instrumentKind,
+  instrumentFamily,
+  instrumentModel,
+}) => {
   let clickHandler = () => {
-    let kindPrompt = window.prompt("Edit Kind", "Kind");
-    let familyPrompt = window.prompt("Edit Family", "Family");
-    let modelPrompt = window.prompt("Edit Model", "Model");
+
+    let kindPrompt = window.prompt("Edit Kind", instrumentKind);
+    if (kindPrompt === null || kindPrompt === "") {
+      kindPrompt = instrumentKind;
+    }
+    let familyPrompt = window.prompt("Edit Family", instrumentFamily);
+    if (familyPrompt === null || familyPrompt === "") {
+      familyPrompt = instrumentFamily;
+    }
+    let modelPrompt = window.prompt("Edit Model", instrumentModel);
+    if (modelPrompt === null || modelPrompt === "") {
+      modelPrompt = instrumentModel;
+    }
+    console.log("input", kindPrompt, familyPrompt, modelPrompt);
     let inputData = {
       kind: kindPrompt,
       family: familyPrompt,

@@ -10,7 +10,7 @@ import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import styled from "styled-components";
 const StyledDiv = styled.div`
-    padding-top: 1px;
+  padding-top: 1px;
 `;
 
 const Instrument = () => {
@@ -62,7 +62,10 @@ const Instrument = () => {
         </CardContent>
         <CardActions>
           <DeleteInstrument instrumentId={instrument.id} />
-          <UpdateInstrument instrumentId={instrument.id} />
+          <UpdateInstrument instrumentId={instrument.id}
+        instrumentKind={instrument.kind}
+        instrumentFamily={instrument.family}
+        instrumentModel={instrument.model} />
         </CardActions>
       </Box>
       <Divider />

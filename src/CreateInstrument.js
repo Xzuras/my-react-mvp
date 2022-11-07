@@ -37,7 +37,7 @@ const CreateInstrument = () => {
     <StyledDiv>
       <form onSubmit={handleSubmit}>
         <TextField
-          label="Kind"
+          label="Type"
           id="outlined-basic"
           variant="outlined"
           onChange={(event) => setKind(event.target.value)}
